@@ -6,8 +6,10 @@ using System.Windows.Forms;
 
 namespace lab1
 {
-    static class Program
+    
+    public class Program
     {
+        public static Database database = new Database();
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +18,7 @@ namespace lab1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ChoosingOptionForm());
         }
     }
 }

@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GenericParsing, Version=1.1.5.29274, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\GenericParsing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,28 +50,92 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IBank.cs" />
-    <Compile Include="Interfaces\IAccount.cs" />
-    <Compile Include="Interfaces\ICreditInstallment.cs" />
-    <Compile Include="Interfaces\ICompany.cs" />
-    <Compile Include="Interfaces\ITransfer.cs" />
-    <Compile Include="Classes\Transfer.cs" />
-    <Compile Include="Classes\User.cs" />
-    <Compile Include="Classes\Company.cs" />
-    <Compile Include="Classes\Account.cs" />
-    <Compile Include="Classes\Credit.cs" />
-    <Compile Include="Classes\Installment.cs" />
-    <Compile Include="Classes\Bank.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\TransferController.cs" />
+    <Compile Include="Models\Classes\Banking\SalaryProject.cs" />
+    <Compile Include="Models\Classes\Roles\AnotherSpecialist.cs" />
+    <Compile Include="Models\Classes\Roles\Admin.cs" />
+    <Compile Include="Models\Classes\Roles\Manager.cs" />
+    <Compile Include="Models\Classes\Roles\Operator.cs" />
+    <Compile Include="Models\Classes\Roles\Client.cs" />
+    <Compile Include="Models\Database\TableSet.cs" />
+    <Compile Include="Models\Database\Database.cs" />
+    <Compile Include="Models\Interfaces\Banking\IBank.cs" />
+    <Compile Include="Models\Interfaces\Banking\IAccount.cs" />
+    <Compile Include="Models\Interfaces\Banking\ICreditInstallment.cs" />
+    <Compile Include="Models\Interfaces\Banking\ICompany.cs" />
+    <Compile Include="Models\Interfaces\Banking\ITransfer.cs" />
+    <Compile Include="Models\Classes\Banking\Transfer.cs" />
+    <Compile Include="Models\Classes\Roles\Abstractions\User.cs" />
+    <Compile Include="Models\Classes\Banking\Company.cs" />
+    <Compile Include="Models\Classes\Banking\Account.cs" />
+    <Compile Include="Models\Classes\Banking\Credit.cs" />
+    <Compile Include="Models\Classes\Banking\Installment.cs" />
+    <Compile Include="Models\Classes\Banking\Bank.cs" />
+    <Compile Include="Models\Interfaces\Roles\IClient.cs" />
+    <Compile Include="Models\Interfaces\Roles\IAdmin.cs" />
+    <Compile Include="Models\Interfaces\Roles\IManager.cs" />
+    <Compile Include="Models\Interfaces\Roles\IOperator.cs" />
+    <Compile Include="Models\Interfaces\Roles\IAnotherSpecialist.cs" />
+    <Compile Include="View\ChoosingOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\ChoosingOptionForm.Designer.cs">
+      <DependentUpon>ChoosingOptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\CreditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CreditForm.Designer.cs">
+      <DependentUpon>CreditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AccountForm.Designer.cs">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BankForm.Designer.cs">
+      <DependentUpon>BankForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstallmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\InstallmentForm.Designer.cs">
+      <DependentUpon>InstallmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SignInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SignInForm.Designer.cs">
+      <DependentUpon>SignInForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AccountForm.resx">
+      <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BankForm.resx">
+      <DependentUpon>BankForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ChoosingOptionForm.resx">
+      <DependentUpon>ChoosingOptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +146,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CreditForm.resx">
+      <DependentUpon>CreditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\InstallmentForm.resx">
+      <DependentUpon>InstallmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SignInForm.resx">
+      <DependentUpon>SignInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,5 +174,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

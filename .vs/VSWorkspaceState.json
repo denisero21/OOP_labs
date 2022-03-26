@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\lab1",
+    "\\lab1\\Controllers",
+    "\\lab1\\Models",
+    "\\lab1\\Models\\Classes",
+    "\\lab1\\Models\\Classes\\Banking",
+    "\\lab1\\Models\\Classes\\Roles",
+    "\\lab1\\Models\\Database",
+    "\\lab1\\View"
+  ],
+  "SelectedNode": "\\lab1\\Models\\Classes\\Banking\\Account.cs",
+  "PreviewInSolutionExplorer": false
+}
