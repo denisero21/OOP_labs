@@ -9,6 +9,23 @@ namespace lab1
         Database db = Program.database;
         List<string> logs = new List<string>(); 
 
+        public Operator() { }
+        public Operator(string login, string password)
+        {
+            this.UserID = Guid.NewGuid().ToString();
+            this.Login = login;
+            this.Password = password;
+        }
+
+        public Operator GetOperator(string id, string login, string password)
+        {
+            this.UserID = id;
+            this.Login = login;
+            this.Password = password;
+
+            return this;
+        }
+
         public void GetStatistics()//add journal
         {
             string[] s = File.ReadAllLines("test.txt");
@@ -18,13 +35,11 @@ namespace lab1
             }
         }
 
-        public void ConfirmSalaryProject(string id)
+        public void ConfirmSalaryProject(string salprjNumber)
         {
-            //readfile
-            List<SalaryProject> projects = new List<SalaryProject>();//for no problem in terminal
-            foreach(SalaryProject i in projects)
+            foreach(SalaryProject i in db.SalaryProjects)
             {
-                if(id == i.Id)
+                if(salprjNumber == i.SalaryProjectNumber)
                 {
                     i.Approved = true;
                 }

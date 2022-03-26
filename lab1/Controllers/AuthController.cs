@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace lab1
 {
-    class AuthController
+    public class AuthController
     {
-        Database database = Program.database;
+        Database db = Program.database;
 
         public AuthController() { }
 
-
+        public Client Auth(string login, string password)
+        {
+            return db.FindByLoginAndPassword(login, password);
+        }
     }
 }

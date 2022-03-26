@@ -8,6 +8,7 @@ namespace lab1
 {
     public class Transfer : ITransfer
     {
+        Database db = Program.database;
         int Sum { get; set; }
 
         public Transfer() 
@@ -15,28 +16,22 @@ namespace lab1
             
         }
 
-        public void TransferTo(string idSender, string idOfRecepient, double sum)
+        public void TransferTo(string numberSender, string numberOfRecepient, double sum)
         {
-            //readfile or from db
-            List<Account> Accounts = new List<Account>();
-            Account This = null;
-
-            foreach (Account i in Accounts)
+            foreach (Account i in db.Accounts)
             {
-                if(idSender == i.Id)
+                if (numberSender == i.AccountNumber)
                 {
-                    This = i;
-                }
-            }
-
-            foreach (Account i in Accounts)
-            {
-                if (idOfRecepient == i.Id)
-                {
-                    if (i.Sum <= This.Sum)
+                    foreach (Account j in db.Accounts)
                     {
-                        This.Sum -= sum;
-                        i.Sum += sum;
+                        if (numberOfRecepient == j.AccountNumber)
+                        {
+                            if (i.Sum >= sum)
+                            {
+                                i.Sum -= sum;
+                                j.Sum += sum;
+                            }
+                        }
                     }
                 }
             }

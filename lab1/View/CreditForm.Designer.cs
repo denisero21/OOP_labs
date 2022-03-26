@@ -130,6 +130,7 @@ namespace lab1
             this.BankBox.Name = "BankBox";
             this.BankBox.Size = new System.Drawing.Size(198, 24);
             this.BankBox.TabIndex = 11;
+            this.BankBox.SelectedIndexChanged += new System.EventHandler(this.BankBox_SelectedIndexChanged);
             // 
             // PercentBox
             // 

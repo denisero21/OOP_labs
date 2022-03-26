@@ -50,9 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AnotherSpecialistController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\OperatorController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
-    <Compile Include="Controllers\TransferController.cs" />
     <Compile Include="Models\Classes\Banking\SalaryProject.cs" />
     <Compile Include="Models\Classes\Roles\AnotherSpecialist.cs" />
     <Compile Include="Models\Classes\Roles\Admin.cs" />

@@ -4,13 +4,13 @@ namespace lab1
 {
     public class RegistrationController
     {
-        Database database = Program.database;
+        Database db = Program.database;
 
         public RegistrationController() {}
 
         public void RegistrateClient(string id, string login, string password, string firstName, string secondName, string patronymic, string phoneNumber, string email, string passport, string idNumb, string country, string company)
         {
-            database.AddClient(
+            db.AddClient(
                 id,
                 login,
                 password,

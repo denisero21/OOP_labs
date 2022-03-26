@@ -8,7 +8,7 @@ namespace lab1
     public class Database
     {
         TableSet tableSet = new TableSet();
-        Bank[] Banks = new Bank[3];
+        public Bank[] Banks = new Bank[3];
 
         public List<Account> Accounts = new List<Account>();
         public List<Credit> Credits = new List<Credit>();
@@ -52,7 +52,7 @@ namespace lab1
                 while (parser.Read())
                 {
                     tableSet.Data.Tables["Accounts"].Rows.Add(new object[] { parser["Id"], parser["AccountNumber"], 
-                        parser["UserID"], parser["BankName"], parser["Sum"], parser["Active"] });
+                        parser["UserID"], parser["BankName"], parser["CompanyName"], parser["Sum"], parser["Active"] });
                     Accounts.Add(GetAccount(parser["AccountNumber"]));
                 }
                 parser.SetDataSource("Credits.txt");
@@ -112,14 +112,15 @@ namespace lab1
                 company});
         }
 
-        public void AddAccount(string id, string accnum,string userId, string bankname, double sum, bool active)
+        public void AddAccount(string id, string accNum, string userId, string bankname,string companyName, double sum, bool active = true)
         {
             tableSet.Data.Tables["Accounts"].Rows.Add(new object[] 
             {   
                 id,
-                accnum,
+                accNum,
                 userId,
                 bankname,
+                companyName,
                 sum,
                 active
             });
@@ -145,12 +146,12 @@ namespace lab1
             });
         }
 
-        public void AddCredit(string id,string creditNumber,string userId, int month, double sum, double percent,string bankname, bool approved, bool cancelled)  
+        public void AddCredit(string id, string crNum, string userId, int month, double sum, double percent,string bankname, bool approved = false, bool cancelled = false)  
         {
             tableSet.Data.Tables["Credits"].Rows.Add(new object[]
                 {
                 id,
-                creditNumber,
+                crNum,
                 userId,
                 month,
                 sum,
@@ -161,12 +162,12 @@ namespace lab1
             });
         }
 
-        public void AddInstallmet(string id,string installmentNumber, string userId, int month, double sum, double percent,string bankname, bool approved, bool cancelled)
+        public void AddInstallmet(string id, string instNum, string userId, int month, double sum, double percent,string bankname, bool approved = false, bool cancelled = false)
         {
             tableSet.Data.Tables["Installmets"].Rows.Add(new object[]
                 {
                 id,
-                installmentNumber,
+                instNum,
                 userId,
                 month,
                 sum,
@@ -177,12 +178,12 @@ namespace lab1
             });
         }
 
-        public void AddSalaryProect(string id, string salprjNumber, string userId, double sum, bool approved, bool cancelled)
+        public void AddSalaryProect(string id, string salNum, string userId, double sum, bool approved = false, bool cancelled = false)
         {
             tableSet.Data.Tables["SalaryProects"].Rows.Add(new object[]
                 {
                 id,
-                salprjNumber,
+                salNum,
                 userId,
                 sum,
                 approved,
@@ -335,6 +336,51 @@ namespace lab1
             if (row.Length != 0)
             {
                 New.GetAnotherSpecialist(
+                    Convert.ToString(row[0]["UserID"]),
+                    Convert.ToString(row[0]["Login"]),
+                    Convert.ToString(row[0]["Password"])
+                    );
+            }
+            return New;
+        }
+
+        public Manager GetManager(string login)
+        {
+            Manager New = null;
+            DataRow[] row = tableSet.Data.Tables["Managers"].Select($"Login = '{login}'");
+            if (row.Length != 0)
+            {
+                New.GetManager(
+                    Convert.ToString(row[0]["UserID"]),
+                    Convert.ToString(row[0]["Login"]),
+                    Convert.ToString(row[0]["Password"])
+                    );
+            }
+            return New;
+        }
+
+        public Operator GetOperator(string login)
+        {
+            Operator New = null;
+            DataRow[] row = tableSet.Data.Tables["Operators"].Select($"Login = '{login}'");
+            if (row.Length != 0)
+            {
+                New.GetOperator(
+                    Convert.ToString(row[0]["UserID"]),
+                    Convert.ToString(row[0]["Login"]),
+                    Convert.ToString(row[0]["Password"])
+                    );
+            }
+            return New;
+        }
+
+        public Admin GetAdmin(string login)
+        {
+            Admin New = null;
+            DataRow[] row = tableSet.Data.Tables["Admins"].Select($"Login = '{login}'");
+            if (row.Length != 0)
+            {
+                New.GetAdmin(
                     Convert.ToString(row[0]["UserID"]),
                     Convert.ToString(row[0]["Login"]),
                     Convert.ToString(row[0]["Password"])

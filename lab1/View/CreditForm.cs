@@ -43,5 +43,10 @@ namespace lab1
                 MessageBox.Show("The request has been sent.");
             }
         }
+
+        private void BankBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace lab1
         string Company { get; set; }
 
         List<Account> Accounts = new List<Account>();
-        List<Bank> Banks = new List<Bank>();
+        public List<string> Banks = new List<string>();
         List<Credit> Credits = new List<Credit>();
         List<Installment> Installments = new List<Installment>();
         SalaryProject salprj = null;
@@ -36,6 +36,17 @@ namespace lab1
             this.IdNumb = idNumb;
             this.Country = country;
             this.Company = company;
+            foreach (Account i in db.Accounts) if (i.UserID == this.UserID) Accounts.Add(i);
+            foreach (Credit i in db.Credits) if (i.UserID == this.UserID) Credits.Add(i);
+            foreach (Installment i in db.Installments) if (i.UserID == this.UserID) Installments.Add(i);
+            foreach (Bank i in db.Banks)
+            {
+                foreach (Account j in db.Accounts)
+                {
+                    if (i.Name == j.BankName && j.UserID == this.UserID) Banks.Add(i.Name);
+                }
+            }
+
         }
 
         public Client GetClient(string userId, string login, string password, string name, string surname, string patronymic, string phoneNumber, string email, string passport, string idNumb, string country, string company)
@@ -53,6 +64,17 @@ namespace lab1
             this.Country = country;
             this.Company = company;
 
+            foreach (Account i in db.Accounts) if (i.UserID == this.UserID) Accounts.Add(i);
+            foreach (Credit i in db.Credits) if (i.UserID == this.UserID) Credits.Add(i);
+            foreach (Installment i in db.Installments) if (i.UserID == this.UserID) Installments.Add(i);
+            foreach (Bank i in db.Banks)
+            {
+                foreach (Account j in db.Accounts)
+                {
+                    if (i.Name == j.BankName && j.UserID == this.UserID) Banks.Add(i.Name);
+                }
+            }
+
             return this;
         }
 
@@ -61,9 +83,7 @@ namespace lab1
         {
             Account New = new Account(this.UserID, sum, bankName);
             Accounts.Add(New);
-            db.AddAccount(New.Id, New.AccountNumber, New.UserID, New.BankName, New.Sum, New.Active);
-            Bank NewB = new Bank(bankName);
-            Banks.Add(NewB);
+            db.AddAccount(New.Id, New.AccountNumber, New.UserID, New.BankName,New.CompanyName, New.Sum, New.Active);
         }
 
         public void RemoveAccount(string accountNumber)//add bank and logs

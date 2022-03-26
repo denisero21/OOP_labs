@@ -47,9 +47,10 @@ namespace lab1
             SetColumn("String", "UserID", table, column);
             SetColumn("Double", "Sum", table, column);
             SetColumn("String", "BankName", table, column);
+            SetColumn("String", "CompanyName", table, column);
             SetColumn("String", "SavingSum", table, column);
             SetColumn("String", "AccumulationSum", table, column);
-            SetColumn("String", "Active", table, column);
+            SetColumn("Boolean", "Active", table, column);
 
 
             Data.Tables.Add(table);
@@ -97,6 +98,8 @@ namespace lab1
             SetColumn("Double", "Sum", table, column);
             SetColumn("Double", "Percent", table, column);
             SetColumn("Int16", "Months", table, column);
+            SetColumn("Boolean", "Approved", table, column);
+            SetColumn("Boolean", "Cancelled", table, column);
 
 
             Data.Tables.Add(table);

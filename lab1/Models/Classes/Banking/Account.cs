@@ -8,18 +8,20 @@ namespace lab1
 {
     public class Account : IAccount
     {
+        Database db = Program.database;
+        Transfer ATransfer = new Transfer();
         public string Id { get; set; }
         public string AccountNumber { get; set; }
         public string UserID { get; set; }
-        public string BankName{get;set;}
+        public string BankName{ get; set; }
+        public string CompanyName { get; set; }
         public double Sum { get; set; }
         public double SavingSum = 0;
         public double AccumulationSum = 0;
         public bool Active = true;
+        
 
-        Transfer ATransfer = new Transfer();
-
-        public Account(string userId, double sum, string bankname)
+        public Account(string userId, double sum, string bankname, string companyName = default)
         {
             this.Id = Guid.NewGuid().ToString();
             this.AccountNumber = Guid.NewGuid().ToString();
@@ -27,20 +29,22 @@ namespace lab1
             this.UserID = userId;
             this.Sum = sum;
             this.BankName = bankname;
+            this.CompanyName = companyName;
         }
 
-        public Account GetAccount(string id, string accNum, string userId, double sum, string bankname)
+        public Account GetAccount(string id, string accNum, string userId, double sum, string bankname, string companyName = default)
         {
             this.Id = id;
             this.AccountNumber = accNum;
             this.UserID = userId;
             this.Sum = sum;
             this.BankName = bankname;
+            this.CompanyName = companyName;
 
             return this;
         }
 
-        public void SavingMoney(double sum, double percent)
+        public void SavingMoney(double sum)
         {
             if (sum <= this.Sum && Active) this.SavingSum = sum;
             else return;
@@ -52,39 +56,20 @@ namespace lab1
             else return;
         }
 
-        public void Transfer(String numberSender, string numberOfRecepient, double sum)
+        public void Transfer(string numberSender, string numberOfRecepient, double sum)
         {
-            /*//readfile or uploading from db
-            List<Account> Accounts = new List<Account>();
-            Account This = null;
-            string idRecepient = null;
-
-            foreach (Account i in Accounts)
-            {
-                if (numberSender == i.AccountNumber)
-                {
-                    This = i;
-                }
-            }
-            foreach (Account i in Accounts)
-            {
-                if (numberOfRecepient == i.AccountNumber)
-                {
-                    idRecepient = i.Id;
-                }
-            }
-            ATransfer.TransferTo(this.Id, idRecepient, sum);*/
+            ATransfer.TransferTo(numberSender, numberOfRecepient, sum);
         }
 
         public void Accumulation(double sum, double percent)
         {
-            if (sum <= this.Sum && Active) this.AccumulationSum = sum + (sum * percent);
+            if (sum <= this.Sum && Active) this.AccumulationSum = sum + (sum * 0.01*percent);
             else return;
         }
 
         public void BlockAccount()
         {
-            //deleting object from db
+            db.RemoveAccount(this.AccountNumber);
         }
 
         public void Freeze()

@@ -9,7 +9,7 @@ namespace lab1
     public abstract class User
     {
         public string UserID { get; set; }
-        protected string Login { get; set; }
+        public string Login { get; set; }
         protected string Password { get; set; }
         protected string Name { get; set; }
         protected string Surname { get; set; }

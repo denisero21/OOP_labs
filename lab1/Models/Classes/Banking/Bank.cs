@@ -5,6 +5,7 @@ namespace lab1
 {
     public class Bank : IBank
     {
+        Database db = Program.database;
         public string Name { get; set; }
         List<Account> Accounts = new List<Account>();
         List<Credit> Credits = new List<Credit>();
@@ -14,6 +15,10 @@ namespace lab1
         public Bank(string bankName) 
         {
             this.Name = bankName;
+            foreach(Account i in db.Accounts) if(i.BankName == this.Name) Accounts.Add(i);
+            foreach(Credit i in db.Credits)if(i.Bank == this.Name) Credits.Add(i);
+            foreach(Client i in db.Clients)if(i.Banks.Contains(this.Name)) Clients.Add(i);
+            foreach(Installment i in db.Installments)if(i.Bank == this.Name) Installments.Add(i);
         }
     }
 }

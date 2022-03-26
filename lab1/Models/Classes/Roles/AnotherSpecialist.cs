@@ -24,24 +24,18 @@ namespace lab1
             return this;
         }
 
-        public void TransferToCompany(string companyName, string companyRecepient,double sum)
+        public void TransferTo(string companySender,string companyRecepient,string numberSender, string numberOfRecepient,double sum)
         {
-            /*Company New = null;
-            DataRow[] row = database.tableSet.Data.Tables["Companies"].Select($"Name = '{companyName}'");
-            foreach (DataRow i in row)
+            foreach(Company i in db.Companies)
             {
-                if (row.Length != 0)
+                if(companySender == i.Name)
                 {
-                    New.CreateCompany(
-                        Convert.ToString(row[0]["Type"]),
-                        Convert.ToString(row[0]["Name"]),
-                        Convert.ToString(row[0]["PAN"]),
-                        Convert.ToString(row[0]["BIC"]),
-                        Convert.ToString(row[0]["Adress"])
-                        );
+                    foreach(Company j in db.Companies)
+                    {
+                        if(companyRecepient == j.Name) i.Accounts[i.Accounts.BinarySearch(db.GetAccount(numberSender))].Transfer(numberSender, numberOfRecepient, sum);
+                    }
                 }
             }
-            New.Transfer(idSender, idOfRecepient, sum);*/
         }
 
         public void TakeSalaryProject(double sum)//add bank and logs
