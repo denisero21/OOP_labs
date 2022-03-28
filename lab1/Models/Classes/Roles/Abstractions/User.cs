@@ -10,10 +10,10 @@ namespace lab1
     {
         public string UserID { get; set; }
         public string Login { get; set; }
-        protected string Password { get; set; }
-        protected string Name { get; set; }
-        protected string Surname { get; set; }
-        protected string Patronymic { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patronymic { get; set; }
 
     }
 }

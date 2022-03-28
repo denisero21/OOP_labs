@@ -9,7 +9,6 @@ namespace lab1
     public class Company : ICompany
     {
         Database db = Program.database;
-        Bank CBank = null;
 
         public List<Account> Accounts = new List<Account>();
 
@@ -22,7 +21,7 @@ namespace lab1
         //9 digits
         string Adress { get; set; }
 
-
+        public Company() { }
         public Company(string type, string name, string pan, string bic, string adress) 
         {
             this.CompanyId = Guid.NewGuid().ToString();
@@ -55,7 +54,7 @@ namespace lab1
         public void CreateAccount(double sum, string bankName)
         {
             Account New = new Account(this.CompanyId, sum, bankName);
-            db.AddAccount(New.Id, New.AccountNumber,New.UserID, New.BankName,New.CompanyName, New.Sum, New.Active);
+            db.AddAccount(New.Id, New.AccountNumber,New.UserID, New.BankName,New.CompanyName, New.Sum,New.SavingSum, New.AccumulationSum, New.Active);
         }
     }
 }

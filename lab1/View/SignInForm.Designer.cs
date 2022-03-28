@@ -46,10 +46,7 @@ namespace lab1
             this.label9 = new System.Windows.Forms.Label();
             this.EmailEdit = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.PassportNumberEdit = new System.Windows.Forms.MaskedTextBox();
@@ -57,6 +54,8 @@ namespace lab1
             this.PhoneNumberEdit = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.CountryEdit = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.CompanyEdit = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // NameEdit
@@ -198,14 +197,6 @@ namespace lab1
             this.label10.TabIndex = 19;
             this.label10.Text = "Email";
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(490, 54);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(263, 288);
-            this.richTextBox1.TabIndex = 20;
-            this.richTextBox1.Text = "";
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(153, 406);
@@ -215,26 +206,6 @@ namespace lab1
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(630, 348);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 28);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Clear the desk";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(490, 348);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 28);
-            this.button3.TabIndex = 23;
-            this.button3.Text = "Clear edits";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -250,7 +221,7 @@ namespace lab1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(319, 5);
+            this.label11.Location = new System.Drawing.Point(156, 5);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 29);
             this.label11.TabIndex = 25;
@@ -279,6 +250,7 @@ namespace lab1
             this.PhoneNumberEdit.Name = "PhoneNumberEdit";
             this.PhoneNumberEdit.Size = new System.Drawing.Size(196, 22);
             this.PhoneNumberEdit.TabIndex = 28;
+            this.PhoneNumberEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberEdit_KeyPress);
             // 
             // label12
             // 
@@ -296,11 +268,29 @@ namespace lab1
             this.CountryEdit.Size = new System.Drawing.Size(196, 22);
             this.CountryEdit.TabIndex = 29;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(243, 169);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 17);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "Company";
+            // 
+            // CompanyEdit
+            // 
+            this.CompanyEdit.Location = new System.Drawing.Point(246, 189);
+            this.CompanyEdit.Name = "CompanyEdit";
+            this.CompanyEdit.Size = new System.Drawing.Size(196, 22);
+            this.CompanyEdit.TabIndex = 31;
+            // 
             // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(501, 450);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.CompanyEdit);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.CountryEdit);
             this.Controls.Add(this.PhoneNumberEdit);
@@ -308,10 +298,7 @@ namespace lab1
             this.Controls.Add(this.PassportNumberEdit);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.EmailEdit);
             this.Controls.Add(this.label9);
@@ -330,6 +317,7 @@ namespace lab1
             this.Controls.Add(this.SurnameEdit);
             this.Controls.Add(this.NameEdit);
             this.Name = "SignInForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -355,10 +343,7 @@ namespace lab1
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox EmailEdit;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox PassportNumberEdit;
@@ -366,5 +351,7 @@ namespace lab1
         private System.Windows.Forms.MaskedTextBox PhoneNumberEdit;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox CountryEdit;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox CompanyEdit;
     }
 }

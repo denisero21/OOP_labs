@@ -11,16 +11,17 @@ namespace lab1
         public string Id { get; set; }
         public string InstallmentNumber { get; set; }
         public string UserID { get; set; }
-        int[] Months = { 3, 6, 12, 24, 36 };
+        public int[] Months = { 3, 6, 12, 24, 36 };
         public double Sum { get; set; }
         double[] Percents = {0, 1.3, 2.4, 3.2, 4.1 };
         public int Month { get; set; }
         public double Percent { get; set; }
         public string Bank { get; set; }
 
-        public bool Approved;
-        public bool Cancelled;
+        public bool Approved = false;
+        public bool Cancelled = false;
 
+        public Installment() { }
         public Installment(string userId, string bank, int months, double sum)
         {
             this.Id = Guid.NewGuid().ToString();
@@ -34,10 +35,10 @@ namespace lab1
             else if (this.Sum <= 15000) this.Percent = Percents[1];
             else if (this.Sum <= 30000) this.Percent = Percents[2];
             else if (this.Sum <= 50000) this.Percent = Percents[3];
-            else if (this.Sum <= 100000) this.Percent = Percents[4];
+            else this.Percent = Percents[4];
         }
 
-        public Installment GetInstallment(string id, string installmentNumber, string userId, string bank, int months, double sum)
+        public Installment GetInstallment(string id, string installmentNumber, string userId, string bank, int months, double sum, bool apr = false, bool canc = false)
         {
             this.Id = id;
             this.InstallmentNumber = installmentNumber;
@@ -46,6 +47,13 @@ namespace lab1
             this.Month = months;
             this.Sum = sum;
             this.Month = months;
+            this.Approved = apr;
+            this.Cancelled = canc;
+            if (this.Sum <= 5000) this.Percent = Percents[0];
+            else if (this.Sum <= 15000) this.Percent = Percents[1];
+            else if (this.Sum <= 30000) this.Percent = Percents[2];
+            else if (this.Sum <= 50000) this.Percent = Percents[3];
+            else this.Percent = Percents[4];
 
             return this;
         }

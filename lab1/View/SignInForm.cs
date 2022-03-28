@@ -1,11 +1,13 @@
 ﻿
 using System.Windows.Forms;
 using System.Threading;
+using System;
 
 namespace lab1
 {
     public partial class SignInForm : Form
     {
+        RegistrationController reg = new RegistrationController();
         public SignInForm()
         {
             InitializeComponent();
@@ -28,13 +30,12 @@ namespace lab1
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            
-
             if(NameEdit.Text == "" || SurnameEdit.Text == "" ||
                 PatronymicEdit.Text == "" || LoginEdit.Text =="" ||
                 PasswEdit.Text == "" || RepPasswEdit.Text == "" ||
                 PhoneNumberEdit.Text == "" || EmailEdit.Text == "" ||
-                PassportNumberEdit.Text == "" || IdNumbEdit.Text == "")
+                PassportNumberEdit.Text == "" || IdNumbEdit.Text == "" ||
+                CountryEdit.Text == "" || CompanyEdit.Text == "")
             {
                 MessageBox.Show("Fill in all the fields.");
             }
@@ -44,34 +45,24 @@ namespace lab1
             }
             else
             {
+                string id = Guid.NewGuid().ToString();
+                reg.RegistrateClient(id, LoginEdit.Text, PasswEdit.Text, NameEdit.Text, SurnameEdit.Text, PatronymicEdit.Text,
+                    PhoneNumberEdit.Text, EmailEdit.Text, PassportNumberEdit.Text, IdNumbEdit.Text, CountryEdit.Text, CompanyEdit.Text);
                 MessageBox.Show("You successfully registrated");
-                ChoosingOptionForm StartForm = new ChoosingOptionForm();
-                Thread myThread1 = new Thread(StartForm.Open);
-                myThread1.Start();
-                this.Close();
-                this.Dispose();
+                
             }
 
             
         }
 
-        private void button3_Click(object sender, System.EventArgs e)
+        private void PhoneNumberEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            NameEdit.Text = "";
-            SurnameEdit.Text = "";
-            PatronymicEdit.Text = "";
-            PhoneNumberEdit.Text = "";
-            EmailEdit.Text = "";
-            PassportNumberEdit.Text = "";
-            IdNumbEdit.Text = "";
-            LoginEdit.Text = "";
-            PasswEdit.Text = "";
-            RepPasswEdit.Text = "";
-        }
+            char number = e.KeyChar;
 
-        private void button2_Click(object sender, System.EventArgs e)
-        {
-            richTextBox1.Text = "";
+            if (!Char.IsDigit(number))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

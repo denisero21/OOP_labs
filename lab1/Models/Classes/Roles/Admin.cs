@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace lab1
 {
-    public class Admin : Manager
+    public class Admin : Manager, IAdmin
     {
+        public List<string> logs = new List<string>();
+
         public Admin() { }
+
         public Admin(string login, string password)
         {
             this.UserID = Guid.NewGuid().ToString();
@@ -27,7 +31,7 @@ namespace lab1
 
         public void CheckAllLogs() 
         {
-            //readfile journal
+            foreach (string i in File.ReadAllLines("AllLogs.txt")) logs.Add(i);
         }
         public void DeclineAllActions() 
         {

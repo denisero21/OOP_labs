@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab1.Controllers
+namespace lab1
 {
     public class AccountController
     {
@@ -20,11 +20,15 @@ namespace lab1.Controllers
         public void OnSaving(double sum)
         {
             ActiveAccount.SavingMoney(sum);
+            db.UpdateOnSaving(ActiveAccount.AccountNumber, sum);
+            db.UpdateBase();
         }
 
         public void CashOut(double sum)
         {
             ActiveAccount.CashOut(sum);
+            db.UpdateCashOut(ActiveAccount.AccountNumber, sum);
+            db.UpdateBase();
         }
 
         public void Transfer(string numberRecepient, double sum)
@@ -35,16 +39,22 @@ namespace lab1.Controllers
         public void Accumulation(double sum, double percent)
         {
             ActiveAccount.Accumulation(sum, percent);
+            db.UpdateAccum(ActiveAccount.AccountNumber, sum, percent);
+            db.UpdateBase();
         }
 
         public void Freeze()
         {
             ActiveAccount.Freeze();
+            db.UpdateFreeze(ActiveAccount.AccountNumber);
+            db.UpdateBase();
         }
 
         public void Unfreeze()
         {
             ActiveAccount.Unfreeze();
+            db.UpdateUnfreeze(ActiveAccount.AccountNumber);
+            db.UpdateBase();
         }
 
         public void Block()
@@ -52,6 +62,12 @@ namespace lab1.Controllers
             ActiveAccount.BlockAccount();
         }
 
-
+        public void GetNumbers(System.Windows.Forms.ComboBox box)
+        {
+            foreach(Account i in db.Accounts)
+            {
+                if (i.AccountNumber != ActiveAccount.AccountNumber) box.Items.Add(i.AccountNumber.ToString());
+            }
+        }
     }
 }

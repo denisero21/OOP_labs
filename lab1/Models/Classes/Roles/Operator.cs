@@ -7,8 +7,9 @@ namespace lab1
     public class Operator : User
     {
         Database db = Program.database;
-        List<string> logs = new List<string>(); 
-
+        List<string> logs = new List<string>();
+        List<SalaryProject> salprg = new List<SalaryProject>();
+        public List<string> acclogs = new List<string>();
         public Operator() { }
         public Operator(string login, string password)
         {
@@ -22,17 +23,19 @@ namespace lab1
             this.UserID = id;
             this.Login = login;
             this.Password = password;
+            
 
             return this;
         }
 
-        public void GetStatistics()//add journal
+        public void Update()
         {
-            string[] s = File.ReadAllLines("test.txt");
-            foreach (string i in s)
-            {
-                logs.Add(i);
-            }
+            foreach (SalaryProject i in db.SalaryProjects) salprg.Add(i);
+        }
+
+        public void GetStatistics()
+        {
+            foreach (string i in File.ReadAllLines("AccountLogs.txt")) acclogs.Add(i);
         }
 
         public void ConfirmSalaryProject(string salprjNumber)

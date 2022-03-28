@@ -41,7 +41,6 @@ namespace lab1
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TransferEdit = new System.Windows.Forms.Button();
-            this.IdOfRecepientEdit = new System.Windows.Forms.TextBox();
             this.TransferSumEdit = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,15 +49,16 @@ namespace lab1
             this.AccumulationPercentEdit = new System.Windows.Forms.TextBox();
             this.AccumulationEdit = new System.Windows.Forms.TextBox();
             this.BackButton = new System.Windows.Forms.Button();
-            this.DaysOfFreezingEdit = new System.Windows.Forms.TextBox();
             this.FreezingButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.BlockButton = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.AccumMemo = new System.Windows.Forms.RichTextBox();
+            this.NumberTransBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AccountMemo
             // 
-            this.AccountMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AccountMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AccountMemo.Location = new System.Drawing.Point(219, 44);
             this.AccountMemo.Name = "AccountMemo";
             this.AccountMemo.Size = new System.Drawing.Size(220, 50);
@@ -101,6 +101,7 @@ namespace lab1
             this.SavingEdit.Name = "SavingEdit";
             this.SavingEdit.Size = new System.Drawing.Size(149, 27);
             this.SavingEdit.TabIndex = 4;
+            this.SavingEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SavingEdit_KeyPress);
             // 
             // label3
             // 
@@ -128,10 +129,11 @@ namespace lab1
             this.CashOutEdit.Name = "CashOutEdit";
             this.CashOutEdit.Size = new System.Drawing.Size(149, 27);
             this.CashOutEdit.TabIndex = 4;
+            this.CashOutEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CashOutEdit_KeyPress);
             // 
             // SavingMemo
             // 
-            this.SavingMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SavingMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SavingMemo.Location = new System.Drawing.Point(219, 122);
             this.SavingMemo.Name = "SavingMemo";
             this.SavingMemo.Size = new System.Drawing.Size(220, 50);
@@ -151,7 +153,7 @@ namespace lab1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 248);
+            this.label5.Location = new System.Drawing.Point(9, 266);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 17);
             this.label5.TabIndex = 2;
@@ -159,7 +161,7 @@ namespace lab1
             // 
             // TransferEdit
             // 
-            this.TransferEdit.Location = new System.Drawing.Point(12, 353);
+            this.TransferEdit.Location = new System.Drawing.Point(12, 371);
             this.TransferEdit.Name = "TransferEdit";
             this.TransferEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.TransferEdit.Size = new System.Drawing.Size(83, 28);
@@ -168,35 +170,28 @@ namespace lab1
             this.TransferEdit.UseVisualStyleBackColor = true;
             this.TransferEdit.Click += new System.EventHandler(this.TransferEdit_Click);
             // 
-            // IdOfRecepientEdit
-            // 
-            this.IdOfRecepientEdit.Location = new System.Drawing.Point(12, 320);
-            this.IdOfRecepientEdit.Multiline = true;
-            this.IdOfRecepientEdit.Name = "IdOfRecepientEdit";
-            this.IdOfRecepientEdit.Size = new System.Drawing.Size(149, 27);
-            this.IdOfRecepientEdit.TabIndex = 4;
-            // 
             // TransferSumEdit
             // 
-            this.TransferSumEdit.Location = new System.Drawing.Point(12, 268);
+            this.TransferSumEdit.Location = new System.Drawing.Point(12, 286);
             this.TransferSumEdit.Multiline = true;
             this.TransferSumEdit.Name = "TransferSumEdit";
             this.TransferSumEdit.Size = new System.Drawing.Size(149, 27);
             this.TransferSumEdit.TabIndex = 4;
+            this.TransferSumEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TransferSumEdit_KeyPress);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 298);
+            this.label6.Location = new System.Drawing.Point(9, 321);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 17);
+            this.label6.Size = new System.Drawing.Size(137, 17);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Id of recepient";
+            this.label6.Text = "Number of recepient";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(216, 248);
+            this.label7.Location = new System.Drawing.Point(216, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 17);
             this.label7.TabIndex = 2;
@@ -205,7 +200,7 @@ namespace lab1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(216, 298);
+            this.label8.Location = new System.Drawing.Point(216, 316);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 17);
             this.label8.TabIndex = 2;
@@ -213,9 +208,9 @@ namespace lab1
             // 
             // AccumulationButton
             // 
-            this.AccumulationButton.Location = new System.Drawing.Point(219, 353);
+            this.AccumulationButton.Location = new System.Drawing.Point(219, 371);
             this.AccumulationButton.Name = "AccumulationButton";
-            this.AccumulationButton.Size = new System.Drawing.Size(89, 28);
+            this.AccumulationButton.Size = new System.Drawing.Size(109, 28);
             this.AccumulationButton.TabIndex = 3;
             this.AccumulationButton.Text = "Accumulate";
             this.AccumulationButton.UseVisualStyleBackColor = true;
@@ -223,19 +218,21 @@ namespace lab1
             // 
             // AccumulationPercentEdit
             // 
-            this.AccumulationPercentEdit.Location = new System.Drawing.Point(219, 320);
+            this.AccumulationPercentEdit.Location = new System.Drawing.Point(219, 338);
             this.AccumulationPercentEdit.Multiline = true;
             this.AccumulationPercentEdit.Name = "AccumulationPercentEdit";
             this.AccumulationPercentEdit.Size = new System.Drawing.Size(149, 27);
             this.AccumulationPercentEdit.TabIndex = 4;
+            this.AccumulationPercentEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AccumulationPercentEdit_KeyPress);
             // 
             // AccumulationEdit
             // 
-            this.AccumulationEdit.Location = new System.Drawing.Point(219, 268);
+            this.AccumulationEdit.Location = new System.Drawing.Point(219, 286);
             this.AccumulationEdit.Multiline = true;
             this.AccumulationEdit.Name = "AccumulationEdit";
             this.AccumulationEdit.Size = new System.Drawing.Size(149, 27);
             this.AccumulationEdit.TabIndex = 4;
+            this.AccumulationEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AccumulationEdit_KeyPress);
             // 
             // BackButton
             // 
@@ -245,57 +242,69 @@ namespace lab1
             this.BackButton.TabIndex = 5;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
-            // 
-            // DaysOfFreezingEdit
-            // 
-            this.DaysOfFreezingEdit.Location = new System.Drawing.Point(435, 268);
-            this.DaysOfFreezingEdit.Multiline = true;
-            this.DaysOfFreezingEdit.Name = "DaysOfFreezingEdit";
-            this.DaysOfFreezingEdit.Size = new System.Drawing.Size(149, 27);
-            this.DaysOfFreezingEdit.TabIndex = 8;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // FreezingButton
             // 
-            this.FreezingButton.Location = new System.Drawing.Point(435, 301);
+            this.FreezingButton.Location = new System.Drawing.Point(341, 413);
             this.FreezingButton.Name = "FreezingButton";
-            this.FreezingButton.Size = new System.Drawing.Size(83, 28);
+            this.FreezingButton.Size = new System.Drawing.Size(112, 28);
             this.FreezingButton.TabIndex = 7;
             this.FreezingButton.Text = "Freeze";
             this.FreezingButton.UseVisualStyleBackColor = true;
             this.FreezingButton.Click += new System.EventHandler(this.FreezingButton_Click);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(435, 248);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 17);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Days of freezing";
-            // 
             // BlockButton
             // 
-            this.BlockButton.Location = new System.Drawing.Point(676, 412);
+            this.BlockButton.Location = new System.Drawing.Point(459, 413);
             this.BlockButton.Name = "BlockButton";
             this.BlockButton.Size = new System.Drawing.Size(112, 28);
             this.BlockButton.TabIndex = 9;
             this.BlockButton.Text = "Block";
             this.BlockButton.UseVisualStyleBackColor = true;
+            this.BlockButton.Click += new System.EventHandler(this.BlockButton_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(214, 185);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(177, 25);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "On Accumulation";
+            // 
+            // AccumMemo
+            // 
+            this.AccumMemo.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AccumMemo.Location = new System.Drawing.Point(219, 213);
+            this.AccumMemo.Name = "AccumMemo";
+            this.AccumMemo.Size = new System.Drawing.Size(220, 50);
+            this.AccumMemo.TabIndex = 10;
+            this.AccumMemo.Text = "";
+            // 
+            // NumberTransBox
+            // 
+            this.NumberTransBox.FormattingEnabled = true;
+            this.NumberTransBox.Location = new System.Drawing.Point(12, 341);
+            this.NumberTransBox.Name = "NumberTransBox";
+            this.NumberTransBox.Size = new System.Drawing.Size(149, 24);
+            this.NumberTransBox.TabIndex = 12;
             // 
             // AccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(583, 450);
+            this.Controls.Add(this.NumberTransBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.AccumMemo);
             this.Controls.Add(this.BlockButton);
-            this.Controls.Add(this.DaysOfFreezingEdit);
             this.Controls.Add(this.FreezingButton);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.AccumulationEdit);
             this.Controls.Add(this.AccumulationPercentEdit);
             this.Controls.Add(this.TransferSumEdit);
-            this.Controls.Add(this.IdOfRecepientEdit);
             this.Controls.Add(this.AccumulationButton);
             this.Controls.Add(this.CashOutEdit);
             this.Controls.Add(this.TransferEdit);
@@ -313,6 +322,7 @@ namespace lab1
             this.Controls.Add(this.SavingMemo);
             this.Controls.Add(this.AccountMemo);
             this.Name = "AccountForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AccountForm_Load);
             this.ResumeLayout(false);
@@ -334,7 +344,6 @@ namespace lab1
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button TransferEdit;
-        private System.Windows.Forms.TextBox IdOfRecepientEdit;
         private System.Windows.Forms.TextBox TransferSumEdit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -343,9 +352,10 @@ namespace lab1
         private System.Windows.Forms.TextBox AccumulationPercentEdit;
         private System.Windows.Forms.TextBox AccumulationEdit;
         private System.Windows.Forms.Button BackButton;
-        private System.Windows.Forms.TextBox DaysOfFreezingEdit;
         private System.Windows.Forms.Button FreezingButton;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button BlockButton;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox AccumMemo;
+        private System.Windows.Forms.ComboBox NumberTransBox;
     }
 }

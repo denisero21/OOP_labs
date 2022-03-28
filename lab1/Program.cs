@@ -10,6 +10,8 @@ namespace lab1
     public class Program
     {
         public static Database database = new Database();
+
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

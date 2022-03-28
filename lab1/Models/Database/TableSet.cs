@@ -2,7 +2,7 @@
 
 namespace lab1
 {
-    class TableSet
+    public class TableSet
     {
         public DataSet Data = new DataSet();
 
@@ -20,11 +20,11 @@ namespace lab1
             DataTable table = new DataTable("Clients");
             DataColumn column = new DataColumn();
 
-            SetColumn("String", "Id", table, column, true);
+            SetColumn("String", "UserID", table, column, true);
             SetColumn("String", "Login", table, column, true);
             SetColumn("String", "Password", table, column);
             SetColumn("String", "Name", table, column);
-            SetColumn("String", "Surname", table, column);
+            SetColumn("String", "SecondName", table, column);
             SetColumn("String", "Patronymic", table, column);
             SetColumn("String", "PhoneNumber", table, column);
             SetColumn("String", "Email", table, column);
@@ -32,6 +32,58 @@ namespace lab1
             SetColumn("String", "IdNumb", table, column);
             SetColumn("String", "Country", table, column);
             SetColumn("String", "Company", table, column);
+
+            SetColumn("Boolean", "Approved", table, column);
+            SetColumn("Boolean", "Cancelled", table, column);
+
+            Data.Tables.Add(table);
+        }
+
+        public void CreateOperatorTable()
+        {
+            DataTable table = new DataTable("Operators");
+            DataColumn column = new DataColumn();
+
+            SetColumn("String", "UserID", table, column, true);
+            SetColumn("String", "Login", table, column, true);
+            SetColumn("String", "Password", table, column);
+
+            Data.Tables.Add(table);
+        }
+
+        public void CreateManagerTable()
+        {
+            DataTable table = new DataTable("Managers");
+            DataColumn column = new DataColumn();
+
+            SetColumn("String", "UserID", table, column, true);
+            SetColumn("String", "Login", table, column, true);
+            SetColumn("String", "Password", table, column);
+
+            Data.Tables.Add(table);
+        }
+
+        public void CreateAdminTable()
+        {
+            DataTable table = new DataTable("Admins");
+            DataColumn column = new DataColumn();
+
+            SetColumn("String", "UserID", table, column, true);
+            SetColumn("String", "Login", table, column, true);
+            SetColumn("String", "Password", table, column);
+
+            Data.Tables.Add(table);
+        }
+
+        public void CreateAnotherSpecialistTable()
+        {
+            DataTable table = new DataTable("AnotherSpecialists");
+            DataColumn column = new DataColumn();
+
+            SetColumn("String", "UserID", table, column, true);
+            SetColumn("String", "Login", table, column, true);
+            SetColumn("String", "Password", table, column);
+            SetColumn("String", "CompanyName", table, column);
 
             Data.Tables.Add(table);
         }
@@ -45,12 +97,13 @@ namespace lab1
             SetColumn("String", "Id", table, column, true);
             SetColumn("String", "AccountNumber", table, column, true);
             SetColumn("String", "UserID", table, column);
-            SetColumn("Double", "Sum", table, column);
             SetColumn("String", "BankName", table, column);
             SetColumn("String", "CompanyName", table, column);
-            SetColumn("String", "SavingSum", table, column);
-            SetColumn("String", "AccumulationSum", table, column);
+            SetColumn("Double", "Sum", table, column);
+            SetColumn("Double", "SavingSum", table, column);
+            SetColumn("Double", "AccumulationSum", table, column);
             SetColumn("Boolean", "Active", table, column);
+            
 
 
             Data.Tables.Add(table);
@@ -70,7 +123,6 @@ namespace lab1
         {
             DataTable table = new DataTable("Credits");
             DataColumn column = new DataColumn();
-
             
             SetColumn("String", "Id", table, column, true);
             SetColumn("String", "CreditNumber", table, column, true);
@@ -81,8 +133,6 @@ namespace lab1
             SetColumn("String", "Bank", table, column);
             SetColumn("Boolean", "Approved", table, column);
             SetColumn("Boolean", "Cancelled", table, column);
-
-
 
             Data.Tables.Add(table);
         }
@@ -95,9 +145,10 @@ namespace lab1
             SetColumn("String", "Id", table, column, true);
             SetColumn("String", "InstallmentNumber", table, column, true);
             SetColumn("String", "UserID", table, column);
-            SetColumn("Double", "Sum", table, column);
-            SetColumn("Double", "Percent", table, column);
             SetColumn("Int16", "Months", table, column);
+            SetColumn("Double", "Sum", table, column);
+            SetColumn("Double", "Percents", table, column);
+            SetColumn("String", "Bank", table, column);
             SetColumn("Boolean", "Approved", table, column);
             SetColumn("Boolean", "Cancelled", table, column);
 
@@ -114,7 +165,8 @@ namespace lab1
             SetColumn("String", "SalaryProjectNumber", table, column, true);
             SetColumn("String", "UserID", table, column);
             SetColumn("Double", "Sum", table, column);
-       
+            SetColumn("Boolean", "Approved", table, column);
+            SetColumn("Boolean", "Cancelled", table, column);
 
             Data.Tables.Add(table);
         }
@@ -124,6 +176,7 @@ namespace lab1
             DataTable table = new DataTable("Companies");
             DataColumn column = new DataColumn();
 
+            SetColumn("String", "CompanyId", table, column, true);
             SetColumn("String", "Type", table, column);
             SetColumn("String", "Name", table, column);
             SetColumn("String", "PAN", table, column, true);

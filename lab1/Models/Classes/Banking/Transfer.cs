@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Data;
+using GenericParsing;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace lab1
 {
@@ -18,23 +19,17 @@ namespace lab1
 
         public void TransferTo(string numberSender, string numberOfRecepient, double sum)
         {
-            foreach (Account i in db.Accounts)
+            DataRow[] row = db.tableSet.Data.Tables["Accounts"].Select($"AccountNumber = '{numberSender}'");
+            if (sum <= Convert.ToDouble(row[0]["Sum"]))
             {
-                if (numberSender == i.AccountNumber)
-                {
-                    foreach (Account j in db.Accounts)
-                    {
-                        if (numberOfRecepient == j.AccountNumber)
-                        {
-                            if (i.Sum >= sum)
-                            {
-                                i.Sum -= sum;
-                                j.Sum += sum;
-                            }
-                        }
-                    }
-                }
+                row[0]["Sum"] = Convert.ToDouble(row[0]["Sum"]) - sum;
+                row = db.tableSet.Data.Tables["Accounts"].Select($"AccountNumber = '{numberOfRecepient}'");
+                row[0]["Sum"] = Convert.ToDouble(row[0]["Sum"]) + sum;
+                db.UpdateBase();
             }
+            else MessageBox.Show("Too big sum for transfer.");
+            
         }
+
     }
 }

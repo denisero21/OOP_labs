@@ -53,6 +53,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AnotherSpecialistController.cs" />
+    <Compile Include="Controllers\CreditInstallmentController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\OperatorController.cs" />
@@ -83,6 +84,12 @@
     <Compile Include="Models\Interfaces\Roles\IManager.cs" />
     <Compile Include="Models\Interfaces\Roles\IOperator.cs" />
     <Compile Include="Models\Interfaces\Roles\IAnotherSpecialist.cs" />
+    <Compile Include="View\AnotherSpecialistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AnotherSpecialistForm.Designer.cs">
+      <DependentUpon>AnotherSpecialistForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ChoosingOptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,11 +116,23 @@
     <Compile Include="View\ClientForm.Designer.cs">
       <DependentUpon>ClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\BankForm.cs">
+    <Compile Include="View\AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\BankForm.Designer.cs">
-      <DependentUpon>BankForm.cs</DependentUpon>
+    <Compile Include="View\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ManagerForm.Designer.cs">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\OperatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OperatorForm.Designer.cs">
+      <DependentUpon>OperatorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\InstallmentForm.cs">
       <SubType>Form</SubType>
@@ -136,8 +155,11 @@
     <EmbeddedResource Include="View\AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\BankForm.resx">
-      <DependentUpon>BankForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\AnotherSpecialistForm.resx">
+      <DependentUpon>AnotherSpecialistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ChoosingOptionForm.resx">
       <DependentUpon>ChoosingOptionForm.cs</DependentUpon>
@@ -159,6 +181,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\InstallmentForm.resx">
       <DependentUpon>InstallmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ManagerForm.resx">
+      <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\OperatorForm.resx">
+      <DependentUpon>OperatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\SignInForm.resx">
       <DependentUpon>SignInForm.cs</DependentUpon>

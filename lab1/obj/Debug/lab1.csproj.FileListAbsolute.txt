@@ -3,14 +3,7 @@ C:\Users\ASUS\Source\Repos\OOP_labs\lab1\bin\Debug\lab1.exe
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\bin\Debug\lab1.pdb
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\bin\Debug\GenericParsing.xml
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.csproj.AssemblyReference.cache
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.AccountForm.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.BankForm.resources
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.Properties.Resources.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.Client.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.CreditForm.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.InstallmentForm.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.SignInForm.resources
-C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.View.SignUpForm.resources
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.csproj.GenerateResource.cache
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
 C:\Users\ASUS\Source\Repos\OOP_labs\lab1\obj\Debug\lab1.csproj.CopyComplete
@@ -24,3 +17,6 @@ C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.CreditForm.resources
 C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.InstallmentForm.resources
 C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.SignInForm.resources
 C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.SignUpForm.resources
+C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.OperatorForm.resources
+C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.ManagerForm.resources
+C:\Users\ASUS\source\repos\OOP_labs\lab1\obj\Debug\lab1.AnotherSpecialistForm.resources

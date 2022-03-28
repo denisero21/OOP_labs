@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab1.Controllers
+namespace lab1
 {
     public class AdminController
     {
@@ -17,9 +17,10 @@ namespace lab1.Controllers
             return admin;
         }
 
-        public void CheckAllLogs()
+        public void CheckAllLogs(System.Windows.Forms.RichTextBox rich)
         {
             admin.CheckAllLogs();
+            foreach (string i in admin.logs) rich.AppendText($"{i}\n");
         }
     }
 }

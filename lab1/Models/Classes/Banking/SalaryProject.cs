@@ -17,6 +17,7 @@ namespace lab1
         public bool Approved;
         public bool Cancelled;
 
+        public SalaryProject() { }
         public SalaryProject(string userId, double sum)
         {
             this.Id = Guid.NewGuid().ToString();
@@ -26,12 +27,14 @@ namespace lab1
             this.Sum = sum;
         }
 
-        public SalaryProject GetSalaryProject(string id, string salprjNumber, string userId, double sum)
+        public SalaryProject GetSalaryProject(string id, string salprjNumber, string userId, double sum, bool apprv = false, bool canc = false)
         {
             this.Id = id;
             this.SalaryProjectNumber = salprjNumber;
             this.UserID = userId;
             this.Sum = sum;
+            this.Approved = apprv;
+            this.Cancelled = canc;
 
             return this;
         }

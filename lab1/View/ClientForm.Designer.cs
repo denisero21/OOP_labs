@@ -36,56 +36,61 @@ namespace lab1
             this.OpenAccountButton = new System.Windows.Forms.Button();
             this.SumEdit = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ApproveButton = new System.Windows.Forms.Button();
-            this.DeclineButton = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.BankBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.AccountsBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.TakeCreditButton = new System.Windows.Forms.Button();
+            this.TakeInsButton = new System.Windows.Forms.Button();
+            this.LogOut = new System.Windows.Forms.Button();
+            this.StatButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.salprgEdit = new System.Windows.Forms.TextBox();
+            this.salprgButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StatusMemo
             // 
             this.StatusMemo.Location = new System.Drawing.Point(12, 12);
             this.StatusMemo.Name = "StatusMemo";
-            this.StatusMemo.Size = new System.Drawing.Size(263, 278);
+            this.StatusMemo.Size = new System.Drawing.Size(348, 278);
             this.StatusMemo.TabIndex = 0;
             this.StatusMemo.Text = "";
             // 
             // AccountsButton
             // 
-            this.AccountsButton.Location = new System.Drawing.Point(12, 298);
+            this.AccountsButton.Location = new System.Drawing.Point(366, 252);
             this.AccountsButton.Name = "AccountsButton";
             this.AccountsButton.Size = new System.Drawing.Size(122, 38);
             this.AccountsButton.TabIndex = 1;
-            this.AccountsButton.Text = "Accounts";
+            this.AccountsButton.Text = "Show account";
             this.AccountsButton.UseVisualStyleBackColor = true;
+            this.AccountsButton.Click += new System.EventHandler(this.AccountsButton_Click);
             // 
             // CreditButton
             // 
-            this.CreditButton.Location = new System.Drawing.Point(12, 342);
+            this.CreditButton.Location = new System.Drawing.Point(115, 296);
             this.CreditButton.Name = "CreditButton";
-            this.CreditButton.Size = new System.Drawing.Size(122, 38);
+            this.CreditButton.Size = new System.Drawing.Size(103, 38);
             this.CreditButton.TabIndex = 2;
-            this.CreditButton.Text = "Credit";
+            this.CreditButton.Text = "Show credits";
             this.CreditButton.UseVisualStyleBackColor = true;
             this.CreditButton.Click += new System.EventHandler(this.CreditButton_Click);
             // 
             // InstallmentButton
             // 
-            this.InstallmentButton.Location = new System.Drawing.Point(12, 386);
+            this.InstallmentButton.Location = new System.Drawing.Point(224, 296);
             this.InstallmentButton.Name = "InstallmentButton";
-            this.InstallmentButton.Size = new System.Drawing.Size(122, 38);
+            this.InstallmentButton.Size = new System.Drawing.Size(136, 38);
             this.InstallmentButton.TabIndex = 3;
-            this.InstallmentButton.Text = "Installment";
+            this.InstallmentButton.Text = "Show installments";
             this.InstallmentButton.UseVisualStyleBackColor = true;
             this.InstallmentButton.Click += new System.EventHandler(this.InstallmentButton_Click);
             // 
             // OpenAccountButton
             // 
-            this.OpenAccountButton.Location = new System.Drawing.Point(294, 121);
+            this.OpenAccountButton.Location = new System.Drawing.Point(366, 113);
             this.OpenAccountButton.Name = "OpenAccountButton";
             this.OpenAccountButton.Size = new System.Drawing.Size(122, 38);
             this.OpenAccountButton.TabIndex = 4;
@@ -95,113 +100,153 @@ namespace lab1
             // 
             // SumEdit
             // 
-            this.SumEdit.Location = new System.Drawing.Point(294, 88);
+            this.SumEdit.Location = new System.Drawing.Point(366, 80);
             this.SumEdit.Multiline = true;
             this.SumEdit.Name = "SumEdit";
             this.SumEdit.Size = new System.Drawing.Size(159, 27);
             this.SumEdit.TabIndex = 5;
+            this.SumEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SumEdit_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(291, 68);
+            this.label1.Location = new System.Drawing.Point(363, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "Sum";
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(518, 30);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 213);
-            this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(833, 30);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(258, 213);
-            this.tableLayoutPanel2.TabIndex = 8;
-            // 
-            // ApproveButton
-            // 
-            this.ApproveButton.Location = new System.Drawing.Point(588, 249);
-            this.ApproveButton.Name = "ApproveButton";
-            this.ApproveButton.Size = new System.Drawing.Size(96, 29);
-            this.ApproveButton.TabIndex = 9;
-            this.ApproveButton.Text = "Approve";
-            this.ApproveButton.UseVisualStyleBackColor = true;
-            // 
-            // DeclineButton
-            // 
-            this.DeclineButton.Location = new System.Drawing.Point(690, 249);
-            this.DeclineButton.Name = "DeclineButton";
-            this.DeclineButton.Size = new System.Drawing.Size(96, 29);
-            this.DeclineButton.TabIndex = 10;
-            this.DeclineButton.Text = "Decline";
-            this.DeclineButton.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(895, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 29);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Location = new System.Drawing.Point(997, 249);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(96, 29);
-            this.DeleteButton.TabIndex = 10;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            // 
             // BankBox
             // 
             this.BankBox.FormattingEnabled = true;
-            this.BankBox.Location = new System.Drawing.Point(294, 41);
+            this.BankBox.Location = new System.Drawing.Point(366, 33);
             this.BankBox.Name = "BankBox";
             this.BankBox.Size = new System.Drawing.Size(159, 24);
             this.BankBox.TabIndex = 11;
+            this.BankBox.SelectedIndexChanged += new System.EventHandler(this.BankBox_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(291, 21);
+            this.label2.Location = new System.Drawing.Point(363, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 17);
             this.label2.TabIndex = 12;
             this.label2.Text = "Bank";
             // 
+            // AccountsBox
+            // 
+            this.AccountsBox.FormattingEnabled = true;
+            this.AccountsBox.Location = new System.Drawing.Point(366, 222);
+            this.AccountsBox.Name = "AccountsBox";
+            this.AccountsBox.Size = new System.Drawing.Size(159, 24);
+            this.AccountsBox.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(366, 202);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 17);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Accounts";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(303, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 29);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // TakeCreditButton
+            // 
+            this.TakeCreditButton.Location = new System.Drawing.Point(12, 340);
+            this.TakeCreditButton.Name = "TakeCreditButton";
+            this.TakeCreditButton.Size = new System.Drawing.Size(122, 38);
+            this.TakeCreditButton.TabIndex = 16;
+            this.TakeCreditButton.Text = "Take credit";
+            this.TakeCreditButton.UseVisualStyleBackColor = true;
+            this.TakeCreditButton.Click += new System.EventHandler(this.TakeCreditButton_Click);
+            // 
+            // TakeInsButton
+            // 
+            this.TakeInsButton.Location = new System.Drawing.Point(12, 384);
+            this.TakeInsButton.Name = "TakeInsButton";
+            this.TakeInsButton.Size = new System.Drawing.Size(122, 38);
+            this.TakeInsButton.TabIndex = 17;
+            this.TakeInsButton.Text = "Take installment";
+            this.TakeInsButton.UseVisualStyleBackColor = true;
+            this.TakeInsButton.Click += new System.EventHandler(this.TakeInsButton_Click);
+            // 
+            // LogOut
+            // 
+            this.LogOut.Location = new System.Drawing.Point(693, 410);
+            this.LogOut.Name = "LogOut";
+            this.LogOut.Size = new System.Drawing.Size(95, 28);
+            this.LogOut.TabIndex = 18;
+            this.LogOut.Text = "Logout";
+            this.LogOut.UseVisualStyleBackColor = true;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
+            // 
+            // StatButton
+            // 
+            this.StatButton.Location = new System.Drawing.Point(12, 296);
+            this.StatButton.Name = "StatButton";
+            this.StatButton.Size = new System.Drawing.Size(97, 38);
+            this.StatButton.TabIndex = 19;
+            this.StatButton.Text = "Client stat";
+            this.StatButton.UseVisualStyleBackColor = true;
+            this.StatButton.Click += new System.EventHandler(this.StatButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(581, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 17);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Sum";
+            // 
+            // salprgEdit
+            // 
+            this.salprgEdit.Location = new System.Drawing.Point(584, 30);
+            this.salprgEdit.Multiline = true;
+            this.salprgEdit.Name = "salprgEdit";
+            this.salprgEdit.Size = new System.Drawing.Size(159, 27);
+            this.salprgEdit.TabIndex = 21;
+            this.salprgEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salprgEdit_KeyPress);
+            // 
+            // salprgButton
+            // 
+            this.salprgButton.Location = new System.Drawing.Point(584, 63);
+            this.salprgButton.Name = "salprgButton";
+            this.salprgButton.Size = new System.Drawing.Size(159, 38);
+            this.salprgButton.TabIndex = 20;
+            this.salprgButton.Text = "Take salary project";
+            this.salprgButton.UseVisualStyleBackColor = true;
+            this.salprgButton.Click += new System.EventHandler(this.salprgButton_Click);
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 450);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.salprgEdit);
+            this.Controls.Add(this.salprgButton);
+            this.Controls.Add(this.StatButton);
+            this.Controls.Add(this.LogOut);
+            this.Controls.Add(this.TakeInsButton);
+            this.Controls.Add(this.TakeCreditButton);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.AccountsBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BankBox);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.DeclineButton);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.ApproveButton);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SumEdit);
             this.Controls.Add(this.OpenAccountButton);
@@ -210,6 +255,7 @@ namespace lab1
             this.Controls.Add(this.AccountsButton);
             this.Controls.Add(this.StatusMemo);
             this.Name = "ClientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClientForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,13 +271,17 @@ namespace lab1
         private System.Windows.Forms.Button OpenAccountButton;
         private System.Windows.Forms.TextBox SumEdit;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button ApproveButton;
-        private System.Windows.Forms.Button DeclineButton;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.ComboBox BankBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox AccountsBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button TakeCreditButton;
+        private System.Windows.Forms.Button TakeInsButton;
+        private System.Windows.Forms.Button LogOut;
+        private System.Windows.Forms.Button StatButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox salprgEdit;
+        private System.Windows.Forms.Button salprgButton;
     }
 }

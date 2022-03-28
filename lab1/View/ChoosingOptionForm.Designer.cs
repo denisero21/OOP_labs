@@ -36,7 +36,7 @@ namespace lab1
             // 
             // SignIn
             // 
-            this.SignIn.Location = new System.Drawing.Point(252, 161);
+            this.SignIn.Location = new System.Drawing.Point(252, 173);
             this.SignIn.Name = "SignIn";
             this.SignIn.Size = new System.Drawing.Size(257, 37);
             this.SignIn.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace lab1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(280, 113);
+            this.label1.Location = new System.Drawing.Point(276, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 29);
             this.label1.TabIndex = 2;
@@ -73,6 +73,7 @@ namespace lab1
             this.Controls.Add(this.SignUp);
             this.Controls.Add(this.SignIn);
             this.Name = "ChoosingOptionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChoosingOptionForm";
             this.ResumeLayout(false);
             this.PerformLayout();
