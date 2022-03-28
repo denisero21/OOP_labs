@@ -39,10 +39,11 @@ namespace lab1
 
         private void OpenAccountButton_Click(object sender, EventArgs e)
         {
-            if(SumEdit.Text == "" || BankBox.SelectedIndex == -1)
+            if (SumEdit.Text == "" || BankBox.SelectedIndex == -1)
             {
                 MessageBox.Show("Fill in all the fields.");
             }
+            else if ((Convert.ToDouble(SumEdit.Text)) > double.MaxValue) MessageBox.Show("Too big value.");
             else
             {
                 actClient.CreateAccount(Convert.ToDouble(SumEdit.Text), BankBox.SelectedItem.ToString(), "-");
@@ -126,8 +127,12 @@ namespace lab1
 
         private void salprgButton_Click(object sender, EventArgs e)
         {
-            actClient.CreateSalaryProject(Convert.ToDouble(salprgEdit.Text));
-            salprgEdit.Text = "";
+            if ((Convert.ToDouble(salprgEdit.Text)) > double.MaxValue) MessageBox.Show("Too big value.");
+            else
+            {
+                actClient.CreateSalaryProject(Convert.ToDouble(salprgEdit.Text));
+                salprgEdit.Text = "";
+            }
         }
 
         private void SumEdit_KeyPress(object sender, KeyPressEventArgs e)

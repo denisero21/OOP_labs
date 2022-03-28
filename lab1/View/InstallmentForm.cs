@@ -43,6 +43,7 @@ namespace lab1
             {
                 MessageBox.Show("Fill in all the fields.");
             }
+            else if ((Convert.ToDouble(SumEdit.Text)) > double.MaxValue) MessageBox.Show("Too big value.");
             else
             {
                 MessageBox.Show("The request has been sent.");
