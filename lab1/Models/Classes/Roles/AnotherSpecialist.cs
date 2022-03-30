@@ -27,6 +27,7 @@ namespace lab1
             this.Login = login;
             this.Password = password;
             this.CompanyName = companyName;
+
             return this;
         }
 

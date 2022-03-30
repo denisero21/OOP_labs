@@ -10,12 +10,8 @@ namespace lab1
     public class Transfer : ITransfer
     {
         Database db = Program.database;
-        int Sum { get; set; }
 
-        public Transfer() 
-        {
-            
-        }
+        public Transfer() { }
 
         public void TransferTo(string numberSender, string numberOfRecepient, double sum)
         {

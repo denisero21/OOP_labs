@@ -20,42 +20,36 @@ namespace lab1
         public void ConfirmCredit(string number)
         {
             manager.ConfirmCredit(number);
-            db.UpdateConfirmCredit(number);
             db.UpdateBase();
         }
 
         public void DeclineCredit(string number)
         {
             manager.DeclineCredit(number);
-            db.UpdateDeclineCredit(number);
             db.UpdateBase();
         }
 
         public void ConfirmInstallment(string number)
         {
             manager.ConfirmInstallment(number);
-            db.UpdateConfirmInstallment(number);
             db.UpdateBase();
         }
 
         public void DeclineInstallment(string number)
         {
             manager.DeclineInstallment(number);
-            db.UpdateDeclineInstallment(number);
             db.UpdateBase();
         }
 
         public void ConfirmSalaryProject(string number)
         {
             manager.ConfirmSalaryProject(number);
-            db.UpdateConfirmSalPrj(number);
             db.UpdateBase();
         }
 
         public void DeclineSalaryProject(string number)
         {
             manager.DeclineSalaryProject(number);
-            db.UpdateDeclineSalPrj(number);
             db.UpdateBase();
         }
 

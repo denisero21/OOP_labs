@@ -27,14 +27,12 @@ namespace lab1
         public void ConfirmSalaryProject(string number)
         {
             _operator.ConfirmSalaryProject(number);
-            db.UpdateConfirmSalPrj(number);
             db.UpdateBase();
         }
 
         public void DeclineSalaryProject(string number)
         {
             _operator.DeclineSalaryProject(number);
-            db.UpdateDeclineSalPrj(number);
             db.UpdateBase();
         }
 

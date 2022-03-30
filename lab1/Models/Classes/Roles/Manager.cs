@@ -28,34 +28,22 @@ namespace lab1
 
         public void ConfirmCredit(string creditNumber)
         {
-            foreach(Credit i in db.Credits)
-            {
-                if(creditNumber == i.CreditNumber)
-                {
-                    i.Approved = true;
-                }
-            }
+            db.UpdateConfirmCredit(creditNumber);
         }
 
         public void DeclineCredit(string number)
         {
-            db.RemoveCredit(number);
+            db.UpdateDeclineCredit(number);
         }
 
         public void ConfirmInstallment(string installmentNumber)
         {
-            foreach (Installment i in db.Installments)
-            {
-                if (installmentNumber == i.InstallmentNumber)
-                {
-                    i.Approved = true;
-                }
-            }
+            db.UpdateConfirmInstallment(installmentNumber);
         }
 
         public void DeclineInstallment(string number)
         {
-            db.RemoveInstallment(number);
+            db.UpdateDeclineInstallment(number);
         }
 
         public void DeclineOperation() { }

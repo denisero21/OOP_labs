@@ -7,7 +7,6 @@ namespace lab1
     public class Operator : User
     {
         Database db = Program.database;
-        List<string> logs = new List<string>();
         List<SalaryProject> salprg = new List<SalaryProject>();
         public List<string> acclogs = new List<string>();
         public Operator() { }
@@ -40,18 +39,12 @@ namespace lab1
 
         public void ConfirmSalaryProject(string salprjNumber)
         {
-            foreach(SalaryProject i in db.SalaryProjects)
-            {
-                if(salprjNumber == i.SalaryProjectNumber)
-                {
-                    i.Approved = true;
-                }
-            }
+            db.UpdateConfirmSalPrj(salprjNumber);
         }
 
         public void DeclineSalaryProject(string number)
         {
-            db.RemoveSalaryProject(number);
+            db.UpdateDeclineSalPrj(number);
         }
     }
 }

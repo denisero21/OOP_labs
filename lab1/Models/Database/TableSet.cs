@@ -32,7 +32,6 @@ namespace lab1
             SetColumn("String", "IdNumb", table, column);
             SetColumn("String", "Country", table, column);
             SetColumn("String", "Company", table, column);
-
             SetColumn("Boolean", "Approved", table, column);
             SetColumn("Boolean", "Cancelled", table, column);
 

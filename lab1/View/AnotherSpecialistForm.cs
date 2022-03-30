@@ -78,5 +78,10 @@ namespace lab1
                 e.Handled = true;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+        }
     }
 }

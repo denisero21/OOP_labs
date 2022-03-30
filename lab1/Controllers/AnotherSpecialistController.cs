@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Data;
+using GenericParsing;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,15 +34,15 @@ namespace lab1
         {
             foreach(Account i in db.Accounts)
             {
-                if (i.CompanyName != "" || i.CompanyName != "-" || i.CompanyName != this.ASpecialist.CompanyName) 
-                    box.Items.Add(i.AccountNumber);
+                if (i.CompanyName != "" && i.CompanyName != "-" && i.CompanyName != this.ASpecialist.CompanyName) 
+                    box.Items.Add(i.AccountNumber); 
             }
         }
 
         public void GetMyAccounts(System.Windows.Forms.ComboBox box)
         {
             ASpecialist.Update();
-            foreach (Account i in ASpecialist.accs) box.Items.Add(i);
+            foreach (Account i in ASpecialist.accs) box.Items.Add(i.AccountNumber);
         }
 
         public void GetAccount(System.Windows.Forms.ComboBox box, System.Windows.Forms.RichTextBox rich)
@@ -54,7 +57,7 @@ namespace lab1
                         $"Company: {i.CompanyName}\n" +
                         $"Sum: {i.Sum}\n" +
                         $"Sum on saving: {i.SavingSum}\n" +
-                        $"Sum on accumulation: {i.AccumulationSum}");
+                        $"Sum on accumulation: {i.AccumulationSum}\n\n");
                 }
             }
         }

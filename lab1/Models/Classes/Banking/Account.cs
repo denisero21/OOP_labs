@@ -52,19 +52,12 @@ namespace lab1
 
         public void SavingMoney(double sum)
         {
-            if (sum <= this.Sum && Active)
-            {
-                this.SavingSum = sum;
-                this.Sum -= sum;
-            }
+            db.UpdateOnSaving(this.AccountNumber, sum);
         }
 
         public void CashOut(double sum)
         {
-            if (sum <= this.Sum && Active)
-            {
-                this.Sum -= sum;
-            }
+            db.UpdateCashOut(this.AccountNumber, sum);
         }
 
         public void Transfer(string numberSender, string numberOfRecepient, double sum)
@@ -74,11 +67,7 @@ namespace lab1
 
         public void Accumulation(double sum, double percent)
         {
-            if (sum <= this.Sum && Active)
-            {
-                this.AccumulationSum = sum + (sum * 0.01 * percent);
-                this.Sum -= sum;
-            }
+            db.UpdateAccum(this.AccountNumber, sum, percent);
         }
 
         public void BlockAccount()
@@ -89,12 +78,12 @@ namespace lab1
 
         public void Freeze()
         {
-            this.Active = false;
+            db.UpdateFreeze(this.AccountNumber);
         }
 
         public void Unfreeze()
         {
-            this.Active = true;
+            db.UpdateUnfreeze(this.AccountNumber);
         }
     }
 }

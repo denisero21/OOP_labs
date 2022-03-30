@@ -7,7 +7,7 @@ using System.IO;
 
 namespace lab1
 {
-    public class Admin : Manager, IAdmin
+    public class Admin : User, IAdmin
     {
         public List<string> logs = new List<string>();
 
@@ -33,6 +33,7 @@ namespace lab1
         {
             foreach (string i in File.ReadAllLines("AllLogs.txt")) logs.Add(i);
         }
+
         public void DeclineAllActions() 
         {
 

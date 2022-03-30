@@ -45,6 +45,7 @@ namespace lab1
             else
             {
                 account.OnSaving(Convert.ToDouble(SavingEdit.Text));
+                account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                 SavingEdit.Text = "";
                 AccountMemo.Clear();
                 SavingMemo.Clear();
@@ -63,6 +64,7 @@ namespace lab1
             else
             {
                 account.CashOut(Convert.ToDouble(CashOutEdit.Text));
+                account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                 CashOutEdit.Text = "";
                 AccountMemo.Clear();
                 AccountMemo.AppendText($"{account.ActiveAccount.Sum}");
@@ -80,6 +82,7 @@ namespace lab1
                 if (Convert.ToDouble(TransferSumEdit.Text) <= account.ActiveAccount.Sum)
                 {
                     account.Transfer(NumberTransBox.SelectedItem.ToString(), Convert.ToDouble(TransferSumEdit.Text));
+                    account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                     TransferEdit.Text = "";
                     AccountMemo.Clear();
                     AccountMemo.AppendText($"{account.ActiveAccount.Sum}");
@@ -99,9 +102,10 @@ namespace lab1
             {
                 if (Convert.ToDouble(AccumulationPercentEdit.Text) <= 100)
                 {
-                    if (Convert.ToDouble(AccumulationEdit.Text) + Convert.ToDouble(AccumulationEdit.Text)*0.01* Convert.ToDouble(AccumulationPercentEdit.Text) <= account.ActiveAccount.Sum)
+                    if (Convert.ToDouble(AccumulationEdit.Text) + Convert.ToDouble(AccumulationEdit.Text)*0.01*Convert.ToDouble(AccumulationPercentEdit.Text) <= account.ActiveAccount.Sum)
                     {
                         account.Accumulation(Convert.ToDouble(AccumulationEdit.Text), Convert.ToDouble(AccumulationPercentEdit.Text));
+                        account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                         AccountMemo.Clear();
                         AccumMemo.Clear();
                         AccountMemo.AppendText($"{account.ActiveAccount.Sum}");
@@ -120,6 +124,7 @@ namespace lab1
             if(account.ActiveAccount.Active)
             {
                 account.Freeze();
+                account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                 FreezingButton.Text = "Unfreeze";
                 Controls.Cast<Control>().ToList().ForEach((ctrl) => ctrl.Visible = false);
                 FreezingButton.Visible = true;
@@ -128,6 +133,7 @@ namespace lab1
             else
             {
                 account.Unfreeze();
+                account.ActiveAccount = account.GetAccount(account.ActiveAccount.AccountNumber);
                 FreezingButton.Text = "Freeze";
                 Controls.Cast<Control>().ToList().ForEach((ctrl) => ctrl.Visible = true);
             }

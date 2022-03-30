@@ -20,15 +20,11 @@ namespace lab1
         public void OnSaving(double sum)
         {
             ActiveAccount.SavingMoney(sum);
-            db.UpdateOnSaving(ActiveAccount.AccountNumber, sum);
-            db.UpdateBase();
         }
 
         public void CashOut(double sum)
         {
             ActiveAccount.CashOut(sum);
-            db.UpdateCashOut(ActiveAccount.AccountNumber, sum);
-            db.UpdateBase();
         }
 
         public void Transfer(string numberRecepient, double sum)
@@ -39,22 +35,16 @@ namespace lab1
         public void Accumulation(double sum, double percent)
         {
             ActiveAccount.Accumulation(sum, percent);
-            db.UpdateAccum(ActiveAccount.AccountNumber, sum, percent);
-            db.UpdateBase();
         }
 
         public void Freeze()
         {
             ActiveAccount.Freeze();
-            db.UpdateFreeze(ActiveAccount.AccountNumber);
-            db.UpdateBase();
         }
 
         public void Unfreeze()
         {
             ActiveAccount.Unfreeze();
-            db.UpdateUnfreeze(ActiveAccount.AccountNumber);
-            db.UpdateBase();
         }
 
         public void Block()

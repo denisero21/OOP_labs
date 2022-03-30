@@ -20,30 +20,22 @@ namespace lab1
 
         public void CreateAccount(double sum, string bankname, string companyname)
         {
-            Account New = new Account(ActiveClient.UserID, sum, bankname, companyname);
-            db.AddAccount(New.Id, New.AccountNumber, ActiveClient.UserID, bankname, companyname, sum, New.SavingSum, New.AccumulationSum);
-            ActiveClient.UpdateInformation();
+            ActiveClient.BuildAccount(sum, bankname);
         }
 
         public void CreateCredit(double sum, string bankname, int months)
         {
-            Credit New = new Credit(ActiveClient.UserID, bankname, months, sum);
-            db.AddCredit(New.Id, New.CreditNumber, ActiveClient.UserID, months, sum, New.Percent, bankname);
-            ActiveClient.UpdateInformation();
+            ActiveClient.TakeCredit(months, sum, bankname);
         }
 
         public void CreateInstallment(double sum, string bankname, int months)
         {
-            Installment New = new Installment(ActiveClient.UserID, bankname, months, sum);
-            db.AddInstallmet(New.Id, New.InstallmentNumber, ActiveClient.UserID, months, sum, New.Percent, bankname);
-            ActiveClient.UpdateInformation();
+            ActiveClient.TakeInstallment(months, sum, bankname);
         }
 
         public void CreateSalaryProject(double sum)
         {
-            SalaryProject New = new SalaryProject(ActiveClient.UserID, sum);
-            db.AddSalaryProect(New.Id, New.SalaryProjectNumber, ActiveClient.UserID, sum);
-            ActiveClient.UpdateInformation();
+            ActiveClient.TakeSalaryProject(sum);
         }
 
         public void GetAccounts(System.Windows.Forms.ComboBox rich)

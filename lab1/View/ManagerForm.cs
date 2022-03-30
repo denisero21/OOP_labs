@@ -61,37 +61,37 @@ namespace lab1
 
         private void ConfCr_Click(object sender, EventArgs e)
         {
-            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the credit.");
             else manager.ConfirmCredit(CredB.SelectedItem.ToString());
         }
 
         private void DeclCr_Click(object sender, EventArgs e)
         {
-            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the credit.");
             else manager.DeclineCredit(CredB.SelectedItem.ToString());
         }
 
         private void ShowCr_Click(object sender, EventArgs e)
         {
-            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (CredB.SelectedIndex == -1) MessageBox.Show("Choose the credit.");
             else manager.GetCredits(Status, CredB.SelectedItem.ToString());
         }
 
         private void ConfInst_Click(object sender, EventArgs e)
         {
-            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the installment.");
             else manager.ConfirmInstallment(InstB.SelectedItem.ToString());
         }
 
         private void DeclInst_Click(object sender, EventArgs e)
         {
-            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the installment.");
             else manager.DeclineInstallment(InstB.SelectedItem.ToString());
         }
 
         private void ShowInst_Click(object sender, EventArgs e)
         {
-            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the project.");
+            if (InstB.SelectedIndex == -1) MessageBox.Show("Choose the installment.");
             else manager.GetInstallments(Status, InstB.SelectedItem.ToString());
         }
 

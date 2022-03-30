@@ -314,7 +314,7 @@ namespace lab1
 
         public void AddSalaryProect(string id, string salNum, string userId, double sum, bool approved = false, bool cancelled = false)
         {
-            tableSet.Data.Tables["SalaryProects"].Rows.Add(new object[]
+            tableSet.Data.Tables["SalaryProjects"].Rows.Add(new object[]
                 {
                 id,
                 salNum,
@@ -724,12 +724,14 @@ namespace lab1
         {
             DataRow[] row = tableSet.Data.Tables["SalaryProjects"].Select($"SalaryProjectNumber = '{number}'");
             row[0]["Approved"] = true;
+            row[0]["Cancelled"] = false;
             File.AppendAllText("AllLogs.txt", $"The salary project {number} was confirmed.\n");
         }
 
         public void UpdateDeclineSalPrj(string number)
         {
             DataRow[] row = tableSet.Data.Tables["SalaryProjects"].Select($"SalaryProjectNumber = '{number}'");
+            row[0]["Approved"] = false;
             row[0]["Cancelled"] = true;
             File.AppendAllText("AllLogs.txt", $"The salary project {number} was declined.\n");
         }
@@ -738,12 +740,14 @@ namespace lab1
         {
             DataRow[] row = tableSet.Data.Tables["Credits"].Select($"CreditNumber = '{number}'");
             row[0]["Approved"] = true;
+            row[0]["Cancelled"] = false;
             File.AppendAllText("AllLogs.txt", $"The credit {number} was confirmed.\n");
         }
 
         public void UpdateDeclineCredit(string number)
         {
             DataRow[] row = tableSet.Data.Tables["Credits"].Select($"CreditNumber = '{number}'");
+            row[0]["Approved"] = false;
             row[0]["Cancelled"] = true;
             File.AppendAllText("AllLogs.txt", $"The credit {number} was declined.\n");
         }
@@ -752,14 +756,37 @@ namespace lab1
         {
             DataRow[] row = tableSet.Data.Tables["Installments"].Select($"InstallmentNumber = '{number}'");
             row[0]["Approved"] = true;
+            row[0]["Cancelled"] = false;
             File.AppendAllText("AllLogs.txt", $"The installment {number} was confirmed.\n");
         }
 
         public void UpdateDeclineInstallment(string number)
         {
             DataRow[] row = tableSet.Data.Tables["Installments"].Select($"InstallmentNumber = '{number}'");
+            row[0]["Approved"] = false;
             row[0]["Cancelled"] = true;
             File.AppendAllText("AllLogs.txt", $"The installment {number} was declined.\n");
         }
+
+        /*public List<Account> GetAccounts()
+        {
+            List<Account> list = new List<Account>();
+            DataRow[] row = tableSet.Data.Tables["Accounts"].Select();
+            for(int i = 0; i < row.Length; i++)
+            {
+                list.Add(new Account().GetAccount(
+                    Convert.ToString(row[i]["Id"]),
+                    Convert.ToString(row[i]["AccountNumber"]),
+                    Convert.ToString(row[i]["UserID"]),
+                    Convert.ToDouble(row[i]["Sum"]),
+                    Convert.ToDouble(row[i]["SavingSum"]),
+                    Convert.ToDouble(row[i]["AccumulationSum"]),
+                    Convert.ToString(row[i]["BankName"]),
+                    Convert.ToString(row[i]["CompanyName"]),
+                    Convert.ToBoolean(row[i]["Active"])
+                    ));
+            }
+            return list;
+        }*/
     }
 }
