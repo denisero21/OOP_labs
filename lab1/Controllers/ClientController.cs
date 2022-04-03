@@ -58,7 +58,7 @@ namespace lab1
                     $"Sum: {i.Sum}\n" +
                     $"Percent: {i.Percent}\n" +
                     $"Months: {i.Month}\n");
-                if (!(i.Approved) && !(i.Cancelled)) rich.AppendText("Approve: not approve\n\n");
+                if (!(i.Approved) && !(i.Cancelled)) rich.AppendText("Approve: not approved\n\n");
                 else if (i.Approved) rich.AppendText("Approve: approved\n\n");
                 else if (i.Cancelled) rich.AppendText("Approve: declined\n\n");
             }
@@ -74,7 +74,7 @@ namespace lab1
                     $"Sum: {i.Sum}\n" +
                     $"Percent: {i.Percent}\n" +
                     $"Months: {i.Month}\n");
-                if ((!(i.Approved)) && (!(i.Cancelled))) rich.AppendText("Approve: not approve\n\n");
+                if ((!(i.Approved)) && (!(i.Cancelled))) rich.AppendText("Approve: not approved\n\n");
                 else if (i.Approved) rich.AppendText("Approve: approved\n\n");
                 else if (i.Cancelled) rich.AppendText("Approve: declined\n\n");
             }

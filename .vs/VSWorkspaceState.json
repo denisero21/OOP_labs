@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\lab1",
-    "\\lab1\\Controllers"
+    "\\lab1\\Controllers",
+    "\\lab1\\Models",
+    "\\lab1\\Models\\Classes",
+    "\\lab1\\Models\\Classes\\Banking",
+    "\\lab1\\View"
   ],
-  "SelectedNode": "\\lab1\\Controllers\\ClientController.cs",
+  "SelectedNode": "\\lab1\\Models\\Classes\\Banking\\Account.cs",
   "PreviewInSolutionExplorer": false
 }

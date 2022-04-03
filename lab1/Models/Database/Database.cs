@@ -336,7 +336,7 @@ namespace lab1
         public Client FindByLoginAndPassword(string login, string password)
         {
             Client FClient = new Client();
-            DataRow[] row = tableSet.Data.Tables["Clients"].Select(" login = '" + login + "' AND Password = '" + password + "'");
+            DataRow[] row = tableSet.Data.Tables["Clients"].Select($" login = '{login}' AND Password = '{password}'");
 
             if (row.Length != 0)
             {
@@ -431,7 +431,7 @@ namespace lab1
             return New;
         }
 
-        public Manager GetManager(string login,string password)
+        public Manager GetManager(string login, string password)
         {
             Manager New = new Manager();
             DataRow[] row = tableSet.Data.Tables["Managers"].Select($" login = '{login}' AND Password = '{password}'");
@@ -767,26 +767,5 @@ namespace lab1
             row[0]["Cancelled"] = true;
             File.AppendAllText("AllLogs.txt", $"The installment {number} was declined.\n");
         }
-
-        /*public List<Account> GetAccounts()
-        {
-            List<Account> list = new List<Account>();
-            DataRow[] row = tableSet.Data.Tables["Accounts"].Select();
-            for(int i = 0; i < row.Length; i++)
-            {
-                list.Add(new Account().GetAccount(
-                    Convert.ToString(row[i]["Id"]),
-                    Convert.ToString(row[i]["AccountNumber"]),
-                    Convert.ToString(row[i]["UserID"]),
-                    Convert.ToDouble(row[i]["Sum"]),
-                    Convert.ToDouble(row[i]["SavingSum"]),
-                    Convert.ToDouble(row[i]["AccumulationSum"]),
-                    Convert.ToString(row[i]["BankName"]),
-                    Convert.ToString(row[i]["CompanyName"]),
-                    Convert.ToBoolean(row[i]["Active"])
-                    ));
-            }
-            return list;
-        }*/
     }
 }
