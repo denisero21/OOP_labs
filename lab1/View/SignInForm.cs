@@ -11,7 +11,6 @@ namespace lab1
         public SignInForm()
         {
             InitializeComponent();
-            //this.database = database;
         }
 
         public void Open()

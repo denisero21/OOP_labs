@@ -40,10 +40,9 @@ namespace lab1
             tableSet.CreateAnotherSpecialistTable();
             tableSet.CreateManagerTable();
             tableSet.CreateOperatorTable();
+
             using (GenericParser parser = new GenericParser())
             {
-                
-
                 parser.ColumnDelimiter = ',';
                 parser.FirstRowHasHeader = true;
                 parser.TextQualifier = '\"';
@@ -160,7 +159,8 @@ namespace lab1
                 SalaryProjects.Add(GetSalaryProject(row[i]["SalaryProjectNumber"].ToString()));
             }
         }
-        public void AddClient(string userId, string login, string password, string firstName, string secondName, string patronymic, string phoneNumber, string email, string passport, string idNumb, string country, string company, bool apprv = true, bool cancl = false)
+        public void AddClient(string userId, string login, string password, string firstName, string secondName, string patronymic, 
+            string phoneNumber, string email, string passport, string idNumb, string country, string company, bool apprv = true, bool cancl = false)
         {
             tableSet.Data.Tables["Clients"].Rows.Add(new object[] 
             {
@@ -615,9 +615,9 @@ namespace lab1
             DataRow[] row = tableSet.Data.Tables["Accounts"].Select($"AccountNumber = '{accountNumber}'");
             Account del = GetAccount(accountNumber);
             row[0].Delete();
+            tableSet.Data.Tables["Accounts"].AcceptChanges();
             File.AppendAllText("AllLogs.txt", $"The account {del.AccountNumber} was deleted.\n");
             File.AppendAllText("AccountLogs.txt", $"The account {del.AccountNumber} was deleted.\n");
-            tableSet.Data.Tables["Accounts"].AcceptChanges();
             Accounts.Remove(del);
            
         }
@@ -688,7 +688,7 @@ namespace lab1
         public void UpdateAccum(string number, double sum, double percent)
         {
             DataRow[] row = tableSet.Data.Tables["Accounts"].Select($"AccountNumber = '{number}'");
-            row[0]["Sum"] = Convert.ToDouble(row[0]["Sum"]) - sum;
+            row[0]["Sum"] = Convert.ToDouble(row[0]["Sum"]) - sum - sum * 0.01 * percent;
             row[0]["AccumulationSum"] = Convert.ToDouble(row[0]["AccumulationSum"]) + sum + sum*0.01*percent;
             row[0].AcceptChanges();
             File.AppendAllText("AllLogs.txt", $"The account {number} updated accumulation sum.\n");

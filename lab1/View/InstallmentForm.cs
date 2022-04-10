@@ -30,9 +30,6 @@ namespace lab1
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            /*Client StartForm = new Client();
-            Thread myThread1 = new Thread(StartForm.Open);
-            myThread1.Start();*/
             this.Close();
             this.Dispose();
         }

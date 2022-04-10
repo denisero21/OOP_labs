@@ -83,7 +83,7 @@ namespace lab1
             }
         }
 
-        public void BuildAccount(double sum, string bankName)//add bank and logs
+        public void BuildAccount(double sum, string bankName)
         {
             Account New = new Account(this.UserID, sum, bankName);
             Accounts.Add(New);

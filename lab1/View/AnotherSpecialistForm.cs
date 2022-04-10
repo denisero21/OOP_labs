@@ -42,7 +42,7 @@ namespace lab1
 
         private void TransferButton_Click(object sender, EventArgs e)
         {
-            if (MyAccsBox.SelectedIndex == -1 || AccBox.SelectedIndex == -1) MessageBox.Show("Choose all the fields.");
+            if (MyAccsBox.SelectedIndex == -1 || AccBox.SelectedIndex == -1 || TransferSumEdit.Text == "") MessageBox.Show("Choose all the fields.");
             else
             {
                 spec.Transfer(MyAccsBox.SelectedItem.ToString(), AccBox.SelectedItem.ToString(), Convert.ToDouble(TransferSumEdit.Text));

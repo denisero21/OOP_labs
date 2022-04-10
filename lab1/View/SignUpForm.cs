@@ -41,7 +41,7 @@ namespace lab1
             {
                 if( auth.Auth(LoginEdit.Text, PasswordEdit.Text).UserID != new Client().UserID)
                 {
-                    MessageBox.Show($"Successful autn! {actClient.GetClient(LoginEdit.Text).UserID}");
+                    MessageBox.Show($"Successful auth! {actClient.GetClient(LoginEdit.Text).UserID}");
                     ClientForm StartForm = new ClientForm(actClient);
                     Thread myThread1 = new Thread(StartForm.Open);
                     myThread1.Start();

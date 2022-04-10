@@ -15,6 +15,7 @@ namespace lab1
             column.Unique = unique;
             table.Columns.Add(column);
         }
+
         public void CreateClientTable()
         {
             DataTable table = new DataTable("Clients");
@@ -28,7 +29,7 @@ namespace lab1
             SetColumn("String", "Patronymic", table, column);
             SetColumn("String", "PhoneNumber", table, column);
             SetColumn("String", "Email", table, column);
-            SetColumn("String", "Passport", table, column, true);
+            SetColumn("String", "Passport", table, column);
             SetColumn("String", "IdNumb", table, column);
             SetColumn("String", "Country", table, column);
             SetColumn("String", "Company", table, column);
@@ -102,8 +103,6 @@ namespace lab1
             SetColumn("Double", "SavingSum", table, column);
             SetColumn("Double", "AccumulationSum", table, column);
             SetColumn("Boolean", "Active", table, column);
-            
-
 
             Data.Tables.Add(table);
         }

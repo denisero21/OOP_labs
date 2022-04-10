@@ -49,3 +49,16 @@ The account 1111 updated saving sum.
 The account 1111 updated saving sum.
 The account 1111 cashed out some money.
 The account 1111 updated accumulation sum.
+The account 9331fd71 was created.
+The account 9331fd71 updated saving sum.
+The account 9331fd71 cashed out some money.
+The account 9331fd71 updated accumulation sum.
+The account 9331fd71 updated accumulation sum.
+The account 1111 was freezed.
+The account 1111 was unfreezed.
+The account 1111 was deleted.
+The account 4215 was freezed.
+The account 4215 was unfreezed.
+The account 4215 updated saving sum.
+The account 4215 cashed out some money.
+The account 4215 was deleted.
